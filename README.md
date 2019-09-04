@@ -16,7 +16,7 @@ Customize the `-e` environment variables as needed.
 
 To run an existing Drupal instance, edit the Drupal config file at `sites/default/settings.php` to match your database credentials from Step 1.
 
-To install a fresh version of Drupal from your local code, delete `settings.php`.
+To install a fresh instance of Drupal from your local code, delete `settings.php`. During the install process, be sure to set the database host to `mysql`.
 
 ### Step 4 - Launch the Drupal Container
 
@@ -28,9 +28,13 @@ Run this command to launch a container that runs an Apache web server & PHP, and
 
 Change the local path as needed.
 
+### Step 4 (Alternate) - Launch a Fresh Drupal Container
+
 To launch an untouched version of Drupal for debugging purposes, omit the `-v` volume sharing:
 
 `docker run --name drupal8 --link mariadb:mysql -p 80:80 -d drupal:latest`
+
+During the install process, be sure to set the database host to `mysql`.
 
 ### Step 5 - View the Drupal Site
 
