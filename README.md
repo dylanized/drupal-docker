@@ -45,9 +45,9 @@ Launch an interactive terminal for your container by running with `-it`:
 ### Diagnostics
 
 - To view currently running containers, run `docker ps`.
-- To stop a container, run `docker stop $container_name_or_id -f`.
-- To restart a container that's been stopped, run `docker start $container_name_or_id -f`.
-- To remove a container, run `docker rm $container_name_or_id`.
+- To stop a container, run `docker stop $container_name_or_id`.
+- To restart a container that's been stopped, run `docker start $container_name_or_id`.
+- To remove a container, run `docker rm $container_name_or_id -f`.
 
 ### Todos
 
