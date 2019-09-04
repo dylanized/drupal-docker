@@ -26,13 +26,13 @@ To install a fresh instance of Drupal from your local code, delete `settings.php
 
 ### Step 5 - Launch the Drupal Container
 
-Run this command to launch a container that runs an Apache web server & PHP, and serves your local codebase on port 80:
+Run this command to launch a container that runs an Apache web server & PHP, and serves your current local folder on port 80:
 
-`docker run --name drupal8 --link mariadb:mysql -p 80:80 -d drupal:latest -v /local/path:/var/www/html/`
+`docker run --name drupal8 --link mariadb:mysql -p 80:80 -v $PWD:/container/path -d drupal:latest`
 
 *NOT WORKING YET*
 
-Change the local path as needed.
+`$PWD` can also be an absolute path to the host folder, i.e. `/host/path`. You may need to add the folder to the File Sharing list in Docker Desktop's preferences.
 
 ### Step 5 (Alternate) - Launch a Fresh Drupal Container
 
@@ -50,14 +50,14 @@ You should now be able to view your site in the browser at http://localhost
 
 Launch an interactive terminal for your container by running with `-it`:
 
-`docker run --name drupal8it --link mariadb:mysql -p 80:80 -it drupal:latest /bin/bash`
+`docker run --name drupal8it --link mariadb:mysql -p 80:80 -v /host/path:/var/www/html -it drupal:latest /bin/bash`
 
 ### Diagnostics
 
 - To view currently running containers, run `docker ps`.
-- To stop a container, run `docker stop $container_name_or_id`.
-- To restart a container that's been stopped, run `docker start $container_name_or_id`.
-- To remove a container, run `docker rm $container_name_or_id -f`.
+- To stop a container, run `docker stop container_name_or_id`.
+- To restart a container that's been stopped, run `docker start container_name_or_id`.
+- To remove a container, run `docker rm container_name_or_id -f`.
 
 ### Todos
 
