@@ -34,7 +34,7 @@ Run this command to launch a container that runs an Apache web server & PHP, and
 
 Change the local path as needed.
 
-### Step 6 (Alternate) - Launch a Fresh Drupal Container
+### Step 5 (Alternate) - Launch a Fresh Drupal Container
 
 To launch an untouched version of Drupal for debugging purposes, omit the `-v` volume sharing:
 
@@ -42,11 +42,11 @@ To launch an untouched version of Drupal for debugging purposes, omit the `-v` v
 
 During the install process, be sure to set the database host to `mysql`.
 
-### Step 7 - View the Drupal Site
+### Step 6 - View the Drupal Site
 
 You should now be able to view your site in the browser at http://localhost
 
-### Step 8 - Launch a Terminal
+### Step 7 - Launch a Terminal
 
 Launch an interactive terminal for your container by running with `-it`:
 
