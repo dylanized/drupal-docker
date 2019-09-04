@@ -2,7 +2,7 @@ Here are steps for running a Drupal development site using separate Docker conta
 
 ### Step 1 - Install Docker
 
-[https://hub.docker.com/?overlay=onboarding](Download Docker for Mac here)
+(https://hub.docker.com/?overlay=onboarding)[Download Docker for Mac here]
 
 ### Step 2 - Launch the Database Container
 
