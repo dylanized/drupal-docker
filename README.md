@@ -2,7 +2,7 @@ Here are steps for running a Drupal development site using separate Docker conta
 
 ### Step 1 - Install Docker
 
-(https://hub.docker.com/?overlay=onboarding)[Download Docker for Mac here]
+[Download Docker for Mac here](https://hub.docker.com/?overlay=onboarding)
 
 ### Step 2 - Launch the Database Container
 
@@ -44,13 +44,10 @@ Launch an interactive terminal for your container by running with `-it`:
 
 ### Diagnostics
 
-To view currently running containers, run `docker ps`.
-
-To stop a container, run `docker stop $container_name_or_id -f`.
-
-To restart a container that's been stopped, run `docker start $container_name_or_id -f`.
-
-To remove a container, run `docker rm $container_name_or_id`.
+- To view currently running containers, run `docker ps`.
+- To stop a container, run `docker stop $container_name_or_id -f`.
+- To restart a container that's been stopped, run `docker start $container_name_or_id -f`.
+- To remove a container, run `docker rm $container_name_or_id`.
 
 ### Todos
 
