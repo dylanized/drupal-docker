@@ -50,7 +50,7 @@ You should now be able to view your site in the browser at http://localhost
 
 Launch an interactive terminal for your container by running with `-it`:
 
-`docker run --name drupal8it --link mariadb:mysql -p 80:80 -v /host/path:/var/www/html -it drupal:latest /bin/bash`
+`docker run --name drupal8it --link mariadb:mysql -p 80:80 -v $PWD:/var/www/html -it drupal:latest /bin/bash`
 
 ### Diagnostics
 
