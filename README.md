@@ -20,7 +20,7 @@ If you are recreating an existing Drupal instance, import your database like thi
 
 ### Step 4 - Edit Database Settings
 
-To run an existing Drupal instance, edit the Drupal config file at `sites/default/settings.php` to match your database credentials from Step 1.
+If you using an existing Drupal codebase, edit the Drupal config file at `sites/default/settings.php` to match your database credentials from Step 1.
 
 To install a fresh instance of Drupal from your local code, delete `settings.php`. During the install process, be sure to set the database host to `mysql`.
 
