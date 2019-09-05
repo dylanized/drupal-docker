@@ -6,7 +6,7 @@ Here are steps for running a Drupal development site by running separate Docker 
 
 ### Step 2 - Launch the Database Container
 
-Run this command to launch a MySQL database container using [Mariadb](https://hub.docker.com/_/mariadb):
+Run this command to launch a MySQL database container, using [Mariadb](https://hub.docker.com/_/mariadb):
 
 `docker run --name mysql -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=drupal -e MYSQL_USER=drupal -e MYSQL_PASSWORD=drupal -d mariadb`
 
@@ -26,7 +26,7 @@ To install a fresh instance of Drupal from your local code, delete `settings.php
 
 ### Step 5 - Launch the Drupal Container
 
-Run this command to launch a container that runs an Apache web server & PHP, and serves your current local folder on port 80:
+Run this command to launch a [Drupal container](https://hub.docker.com/_/drupal) that runs an Apache web server & PHP, and serves your current local folder on port 80:
 
 `docker run --name drupal --link mysql:mysql -p 8000:80 -v $PWD:/var/www/html -d drupal:latest`
 
