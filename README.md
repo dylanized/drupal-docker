@@ -1,4 +1,4 @@
-Here are steps for running a Drupal development site using separate Docker containers on Mac OS X.
+Here are steps for running a Drupal development site by running separate Docker containers on Mac OS X.
 
 ### Step 1 - Install Docker
 
@@ -62,6 +62,7 @@ Launch an interactive terminal for your Drupal container by running with `-it`:
 - To stop a container, run `docker stop container_name_or_id`.
 - To restart a container that's been stopped, run `docker start container_name_or_id`.
 - To remove a container, run `docker rm container_name_or_id -f`
+- To remove a container automatically, add `--rm` to the launch command
 
 ### Database Diagnostics
 
@@ -72,6 +73,8 @@ After launching the database container, you can run database commands:
 
 ### Todos
 
-- connecting with https
 - automating with docker compose
+-- importing
+-- docs
+- connecting with https
 - installing Drush
