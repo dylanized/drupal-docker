@@ -72,9 +72,7 @@ After launching the database container, you can run database commands:
 - To see tables, run `docker exec mariadb mysql --user="drupal8" --password="drupal8" --database="drupal8" --execute="use drupal8; show tables;"`
 
 ### Todos
-
-- automating with docker compose
--- importing
--- docs
+- run import
+- compose import
 - connecting with https
 - installing Drush

@@ -16,10 +16,10 @@ Launch the containers with this command:
 
 You should now be able to view your site in the browser at http://localhost
 
-### Step 4 - Relaunch the Containers
+### Step 4 - Restart the Containers
 
 Exit the Docker Compose session with `CMD-C`.
 
-You can then relaunch the containers with `docker-compose start`.
+You can then restart the containers with `docker-compose start`, and stop them with `docker-compose stop`.
 
 Remove the containers with `docker-compose down`.
