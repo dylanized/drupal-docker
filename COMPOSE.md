@@ -1,4 +1,4 @@
-Here are steps for running a Drupal development site using separate Docker Compose on Mac OS X.
+Here are steps for running a Drupal development site using Docker Compose on Mac OS X.
 
 ### Step 1 - Install Docker
 
