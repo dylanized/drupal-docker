@@ -14,19 +14,13 @@ This command will automatically import SQL files in the `data` subdirectory of t
 
 Customize the `-e` environment variables as needed.
 
-### Step 3 - Import your Database
-
-If you are recreating an existing Drupal instance, place a `staging.sql` file in your codebase folder and import database like this:
-
-`docker exec -i mysql sh -c 'exec mysql -udrupal -p"drupal" drupal' < staging.sql`
-
-### Step 4 - Edit Database Settings
+### Step 3 - Edit Database Settings
 
 If you using an existing Drupal codebase, edit the Drupal config file at `sites/default/settings.php` to match your database credentials from Step 1.
 
 To install a fresh instance of Drupal from your local code, delete `settings.php`. During the install process, be sure to set the database host to `mysql`.
 
-### Step 5 - Launch the Drupal Container
+### Step 4 - Launch the Drupal Container
 
 Run this command to launch a [Drupal container](https://hub.docker.com/_/drupal) that runs an Apache web server & PHP, and serves your current local folder on port 80:
 
@@ -36,7 +30,7 @@ Run this command to launch a [Drupal container](https://hub.docker.com/_/drupal)
 
 Replace `8000` with desired port.
 
-### Step 5 (Alternate) - Launch a Fresh Drupal Container
+### Step 4 (Alternate) - Launch a Fresh Drupal Container
 
 To launch an untouched version of Drupal for debugging purposes, omit the `-v` volume sharing:
 
@@ -46,11 +40,11 @@ During the install process, be sure to set the database host to `mysql`.
 
 Replace `drupal:latest` with the desired [Drupal version](https://hub.docker.com/_/drupal?tab=tags).
 
-### Step 6 - View the Drupal Site
+### Step 5 - View the Drupal Site
 
 You should now be able to view your site in the browser at http://localhost
 
-### Step 7 - Launch a Terminal
+### Step 6 - Launch a Terminal
 
 Launch an interactive terminal for your Drupal container by running with `-it`:
 
@@ -58,7 +52,7 @@ Launch an interactive terminal for your Drupal container by running with `-it`:
 
 (Note: web server does not run during terminal session.)
 
-### Container Diagnostics
+### Container Helpers
 
 - To view currently running containers, run `docker ps`.
 - To stop a container, run `docker stop container_name_or_id`.
@@ -66,7 +60,7 @@ Launch an interactive terminal for your Drupal container by running with `-it`:
 - To remove a container, run `docker rm container_name_or_id -f`
 - To remove a container automatically, add `--rm` to the launch command
 
-### Database Diagnostics
+### Database Helpers
 
 After launching the database container, you can run database commands:
 
@@ -74,6 +68,7 @@ After launching the database container, you can run database commands:
 - To see tables, run `docker exec mysql mysql --user="drupal" --password="drupal" --database="drupal" --execute="use drupal; show tables;"`
 - To empty database, run `docker exec mysql mysql --user="drupal" --password="drupal" --database="drupal" --execute="drop database drupal; create database drupal"`
 - To run MySQL commands on your database, launch a terminal within a second container instance: `docker run -it --link mysql:mysql --rm mariadb mysql -hmysql -udrupal -p`
+- To manually import an existing database backup: `docker exec -i mysql sh -c 'exec mysql -udrupal -p"drupal" drupal' < staging.sql`
 
 ### Todos
 - connecting with https
