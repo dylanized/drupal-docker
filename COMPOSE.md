@@ -6,9 +6,9 @@ Here are steps for running a Drupal development site using Docker Compose on Mac
 
 ### Step 2 - Launch the Containers
 
-In the Docker Compose file there is are database and web server containers defined.
+In the included `docker-compose.yaml` config file, a database container and a web server container are defined.
 
-Launch the containers with this command:
+Launch the containers from the codebase folder with this command:
 
 `docker-compose up`
 
