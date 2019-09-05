@@ -8,7 +8,7 @@ Here are steps for running a Drupal development site using separate Docker conta
 
 Run this command to launch a MySQL database container:
 
-`docker run -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=drupal8 -e MYSQL_USER=drupal8 -e MYSQL_PASSWORD=drupal8 -v mariadb:/var/lib/mysql -d --name mariadb mariadb`
+`docker run -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=drupal8 -e MYSQL_USER=drupal8 -e MYSQL_PASSWORD=drupal8 -d --name mariadb mariadb`
 
 Customize the `-e` environment variables as needed.
 
@@ -42,6 +42,8 @@ To launch an untouched version of Drupal for debugging purposes, omit the `-v` v
 
 During the install process, be sure to set the database host to `mysql`.
 
+Replace `drupal:latest` with the desired [Drupal version](https://hub.docker.com/_/drupal?tab=tags).
+
 ### Step 6 - View the Drupal Site
 
 You should now be able to view your site in the browser at http://localhost
@@ -54,17 +56,22 @@ Launch an interactive terminal for your Drupal container by running with `-it`:
 
 (Note: web server does not run during terminal session.)
 
-### Diagnostics
+### Container Diagnostics
 
 - To view currently running containers, run `docker ps`.
 - To stop a container, run `docker stop container_name_or_id`.
 - To restart a container that's been stopped, run `docker start container_name_or_id`.
-- To remove a container, run `docker rm container_name_or_id -f`.
-- To show tables from the MySQL database, run `*TODO*`
+- To remove a container, run `docker rm container_name_or_id -f`
+
+### Database Diagnostics
+
+After launching the database container, you can run database commands:
+
+- To see databases, run `docker exec mariadb mysql --user="drupal8" --password="drupal8" --database="drupal8" --execute="show databases;"`
+- To see tables, run `docker exec mariadb mysql --user="drupal8" --password="drupal8" --database="drupal8" --execute="use drupal8; show tables;"`
 
 ### Todos
 
-- different drupal versions
 - connecting with https
 - automating with docker compose
 - installing Drush
