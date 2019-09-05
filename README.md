@@ -8,17 +8,15 @@ Here are steps for running a Drupal development site by running separate Docker 
 
 Run this command to launch a MySQL database container:
 
-`docker run -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=drupal -e MYSQL_USER=drupal -e MYSQL_PASSWORD=drupal -d --name mariadb mariadb`
+`docker run --name mysql -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=drupal -e MYSQL_USER=drupal -e MYSQL_PASSWORD=drupal -d mariadb`
 
 Customize the `-e` environment variables as needed.
 
 ### Step 3 - Import your Database
 
-If you are recreating an existing Drupal instance, place a `drupal.sql` file in your codebase folder and import database like this:
+If you are recreating an existing Drupal instance, place a `staging.sql` file in your codebase folder and import database like this:
 
-`docker exec mariadb mysql --user="drupal" --password="drupal" --host="localhost" drupal < staging.sql`
-
-*DOESN'T WORK*
+`docker exec -i mysql sh -c 'exec mysql -udrupal -p"drupal" drupal' < staging.sql`
 
 ### Step 4 - Edit Database Settings
 
@@ -30,7 +28,7 @@ To install a fresh instance of Drupal from your local code, delete `settings.php
 
 Run this command to launch a container that runs an Apache web server & PHP, and serves your current local folder on port 80:
 
-`docker run --name drupal --link mariadb:mysql -p 8000:80 -v $PWD:/var/www/html -d drupal:latest`
+`docker run --name drupal --link mysql:mysql -p 8000:80 -v $PWD:/var/www/html -d drupal:latest`
 
 `$PWD` can also be an absolute path to the host folder, i.e. `/host/path`. You may need to add the folder to the File Sharing list in Docker Desktop's preferences.
 
@@ -40,7 +38,7 @@ Replace `8000` with desired port.
 
 To launch an untouched version of Drupal for debugging purposes, omit the `-v` volume sharing:
 
-`docker run --name drupal --link mariadb:mysql -p 8000:80 -d drupal:latest`
+`docker run --name drupal --link mysql:mysql -p 8000:80 -d drupal:latest`
 
 During the install process, be sure to set the database host to `mysql`.
 
@@ -54,7 +52,7 @@ You should now be able to view your site in the browser at http://localhost
 
 Launch an interactive terminal for your Drupal container by running with `-it`:
 
-`docker run --name drupalit --link mariadb:mysql -p 8000:80 -v $PWD:/var/www/html -it drupal:latest /bin/bash`
+`docker run --name drupalit --link mysql:mysql -p 8000:80 -v $PWD:/var/www/html -it drupal:latest /bin/bash`
 
 (Note: web server does not run during terminal session.)
 
@@ -70,13 +68,11 @@ Launch an interactive terminal for your Drupal container by running with `-it`:
 
 After launching the database container, you can run database commands:
 
-- To see databases, run `docker exec mariadb mysql --user="drupal" --password="drupal" --database="drupal" --execute="show databases;"`
-- To see tables, run `docker exec mariadb mysql --user="drupal" --password="drupal" --database="drupal" --execute="use drupal; show tables;"`
-- To empty database, run `docker exec mariadb mysql --user="drupal" --password="drupal" --database="drupal" --execute="drop database drupal; create database drupal"`
-- To run MySQL commands on your database, launch a terminal within second container instance: `docker run -it --link mariadb:mysql --rm mariadb mysql -hmysql -udrupal -p`
+- To see databases, run `docker exec mysql mysql --user="drupal" --password="drupal" --database="drupal" --execute="show databases;"`
+- To see tables, run `docker exec mysql mysql --user="drupal" --password="drupal" --database="drupal" --execute="use drupal; show tables;"`
+- To empty database, run `docker exec mysql mysql --user="drupal" --password="drupal" --database="drupal" --execute="drop database drupal; create database drupal"`
+- To run MySQL commands on your database, launch a terminal within second container instance: `docker run -it --link mysql:mysql --rm mariadb mysql -hmysql -udrupal -p`
 
 ### Todos
-- run import
-- compose import
 - connecting with https
 - installing Drush
