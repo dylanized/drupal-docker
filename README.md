@@ -28,7 +28,7 @@ To install a fresh instance of Drupal from your local code, delete `settings.php
 
 Run this command to launch a container that runs an Apache web server & PHP, and serves your current local folder on port 80:
 
-`docker run --name drupal8 --link mariadb:mysql -p 80:80 -v $PWD:/container/path -d drupal:latest`
+`docker run --name drupal8 --link mariadb:mysql -p 80:80 -v $PWD:/var/www/html -d drupal:latest`
 
 *NOT WORKING YET*
 
@@ -51,6 +51,8 @@ You should now be able to view your site in the browser at http://localhost
 Launch an interactive terminal for your container by running with `-it`:
 
 `docker run --name drupal8it --link mariadb:mysql -p 80:80 -v $PWD:/var/www/html -it drupal:latest /bin/bash`
+
+(Note: server does not run during terminal session.)
 
 ### Diagnostics
 
