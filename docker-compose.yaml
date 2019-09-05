@@ -1,0 +1,19 @@
+version: '3'
+services:
+    mariadb:
+        container_name: mariadb
+        image: mariadb
+        environment:
+          - MYSQL_ROOT_PASSWORD=admin
+          - MYSQL_DATABASE=drupal
+          - MYSQL_USER=drupal
+          - MYSQL_PASSWORD=drupal
+    drupal:
+        container_name: drupal
+        image: drupal:latest
+        links:
+          - mariadb:mysql
+        ports:
+          - 8000:80
+        volumes:
+          - ./:/var/www/html
