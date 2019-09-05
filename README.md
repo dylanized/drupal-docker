@@ -71,7 +71,7 @@ After launching the database container, you can run database commands:
 - To see databases, run `docker exec mysql mysql --user="drupal" --password="drupal" --database="drupal" --execute="show databases;"`
 - To see tables, run `docker exec mysql mysql --user="drupal" --password="drupal" --database="drupal" --execute="use drupal; show tables;"`
 - To empty database, run `docker exec mysql mysql --user="drupal" --password="drupal" --database="drupal" --execute="drop database drupal; create database drupal"`
-- To run MySQL commands on your database, launch a terminal within second container instance: `docker run -it --link mysql:mysql --rm mariadb mysql -hmysql -udrupal -p`
+- To run MySQL commands on your database, launch a terminal within a second container instance: `docker run -it --link mysql:mysql --rm mariadb mysql -hmysql -udrupal -p`
 
 ### Todos
 - connecting with https
