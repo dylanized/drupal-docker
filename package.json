@@ -1,0 +1,26 @@
+{
+  "name": "drupal-docker",
+  "version": "1.0.0",
+  "description": "Here are steps for running a Drupal development site by running separate Docker containers on Mac OS X.",
+  "main": "index.js",
+  "scripts": {
+    "docker:up": "docker-compose up",
+    "docker:start": "docker-compose start",
+    "docker:stop": "docker-compose stop",    
+    "docker:down": "docker-compose down",
+    "mysql:dbs": "docker exec mysql mysql --user=\"drupal\" --password=\"drupal\" --database=\"drupal\" --execute=\"show databases;\"",
+    "mysql:tables": "docker exec mysql mysql --user=\"drupal\" --password=\"drupal\" --database=\"drupal\" --execute=\"use drupal; show tables;\"",
+    "mysql:empty": "docker exec mysql mysql --user=\"drupal\" --password=\"drupal\" --database=\"drupal\" --execute=\"drop database drupal; create database drupal\"",
+    "mysql:shell": "docker run -it --link mysql:mysql --rm mariadb mysql -hmysql -udrupal -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dylanized/drupal-docker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dylanized/drupal-docker/issues"
+  },
+  "homepage": "https://github.com/dylanized/drupal-docker#readme"
+}
