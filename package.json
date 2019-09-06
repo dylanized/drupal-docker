@@ -6,8 +6,9 @@
   "scripts": {
     "docker:up": "docker-compose up",
     "docker:start": "docker-compose start",
-    "docker:stop": "docker-compose stop",    
+    "docker:stop": "docker-compose stop",
     "docker:down": "docker-compose down",
+    "docker:list": "docker ps -as",
     "mysql:dbs": "docker exec mysql mysql --user=\"drupal\" --password=\"drupal\" --database=\"drupal\" --execute=\"show databases;\"",
     "mysql:tables": "docker exec mysql mysql --user=\"drupal\" --password=\"drupal\" --database=\"drupal\" --execute=\"use drupal; show tables;\"",
     "mysql:empty": "docker exec mysql mysql --user=\"drupal\" --password=\"drupal\" --database=\"drupal\" --execute=\"drop database drupal; create database drupal\"",
