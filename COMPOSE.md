@@ -14,7 +14,9 @@ The database will automatically import `.sql` files in your `/data` subdirectory
 
 ### Step 3 - View the Drupal Site
 
-You should now be able to view your site in the browser at http://localhost
+You should now be able to view your site in the browser at http://localhost:8000
+
+You can connect to the database at http://localhost:33060
 
 ### Step 4 - Stop and Restart the Containers
 

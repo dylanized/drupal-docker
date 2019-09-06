@@ -8,7 +8,7 @@ Here are steps for running a Drupal development site by running separate Docker 
 
 Run this command to launch a MySQL database container, using [Mariadb](https://hub.docker.com/_/mariadb):
 
-`docker run --name mysql -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=drupal -e MYSQL_USER=drupal -e MYSQL_PASSWORD=drupal -v $PWD/data:/docker-entrypoint-initdb.d -d mariadb`
+`docker run --name mysql -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=drupal -e MYSQL_USER=drupal -e MYSQL_PASSWORD=drupal -p 33060:3306 -v $PWD/data:/docker-entrypoint-initdb.d -d mariadb`
 
 This command will automatically import SQL files in the `data` subdirectory of the current folder.
 
@@ -42,7 +42,9 @@ Replace `drupal:latest` with the desired [Drupal version](https://hub.docker.com
 
 ### Step 5 - View the Drupal Site
 
-You should now be able to view your site in the browser at http://localhost
+You should now be able to view your site in the browser at http://localhost:8000
+
+You can connect to the MySQL database at http://localhost:33060
 
 ### Step 6 - Launch a Terminal
 
