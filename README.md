@@ -65,8 +65,8 @@ Launch an interactive terminal for your Drupal container by running with `-it`:
 After launching the database container, you can run database commands:
 
 - To see databases, run `docker exec mysql mysql --user="drupal" --password="drupal" --database="drupal" --execute="show databases;"`
-- To see tables, run `docker exec mysql mysql --user="drupal" --password="drupal" --database="drupal" --execute="use drupal; show tables;"`
-- To empty database, run `docker exec mysql mysql --user="drupal" --password="drupal" --database="drupal" --execute="drop database drupal; create database drupal"`
+- To see tables: `docker exec mysql mysql --user="drupal" --password="drupal" --database="drupal" --execute="use drupal; show tables;"`
+- To empty database: `docker exec mysql mysql --user="drupal" --password="drupal" --database="drupal" --execute="drop database drupal; create database drupal"`
 - To run MySQL commands on your database, launch a terminal within a second container instance: `docker run -it --link mysql:mysql --rm mariadb mysql -hmysql -udrupal -p`
 - To manually import an existing database backup: `docker exec -i mysql sh -c 'exec mysql -udrupal -p"drupal" drupal' < staging.sql`
 
