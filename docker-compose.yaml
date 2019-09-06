@@ -1,4 +1,4 @@
-version: '3'
+version: '3.5'
 services:
     mariadb:
         container_name: mysql
@@ -9,7 +9,7 @@ services:
           - MYSQL_USER=drupal
           - MYSQL_PASSWORD=drupal
         volumes:
-          - ./data:/docker-entrypoint-initdb.d          
+          - ./data:/docker-entrypoint-initdb.d
         networks:
           - drupal
     drupal:
@@ -23,3 +23,4 @@ services:
           - drupal
 networks:
   drupal:
+    name: drupal
