@@ -1,6 +1,6 @@
 version: '3.5'
 services:
-    mariadb:
+    mysql:
         container_name: mysql
         image: mariadb
         environment:
@@ -8,6 +8,8 @@ services:
           - MYSQL_DATABASE=drupal
           - MYSQL_USER=drupal
           - MYSQL_PASSWORD=drupal
+        ports:
+          - 33060:3306
         volumes:
           - ./data:/docker-entrypoint-initdb.d
         networks:
