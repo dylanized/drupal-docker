@@ -11,20 +11,29 @@ This repo contains documentation and example tooling for running Drupal with Doc
 
 ### NPM Scripts
 
-Docker Scripts:
+Docker Run:
 
   - `docker:up` - launch Docker Compose containers
   - `docker:start` - restart containers
   - `docker:stop` - stop containers
-  - `docker:down` - : remove containers
-  - `docker:list` - : list containers
+  - `docker:down` - remove containers
+  - `docker:reload` - remove and launch containers
 
-MySQL Scripts:
+Docker Utils:
+
+  - `docker:list` - list containers
+  - `docker:build` - regenerate Dockerfile images
+  - `docker:rebuild` - remove, build and relaunch containers
+  - `docker:logs` - display logs from containers
+
+MySQL Utils:
 
   - `mysql:dbs` - list mysql databases
   - `mysql:tables` - list drupal tables
   - `mysql:empty` - empty drupal database
   - `mysql:shell` - launch shell in MySQL container
+
+### Connect to Database
 
 To connect to the database via SQL Pro (or other app), create a new connection with these values:
 
