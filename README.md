@@ -25,3 +25,11 @@ MySQL Scripts:
   - `mysql:tables` - list drupal tables
   - `mysql:empty` - empty drupal database
   - `mysql:shell` - launch shell in MySQL container
+
+To connect to the database via SQL Pro (or other app), create a new connection with these values:
+
+  - host: 127.0.0.1
+  - username: `drupal`
+  - password: `drupal`
+  - database: `drupal`
+  - port: 33060
