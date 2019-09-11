@@ -1,8 +1,10 @@
 Here are steps for running a Drupal development site by running separate Docker containers on Mac OS X.
 
-### Step 1 - Install Docker
+### Step 1 - Install & Run Docker
 
 [Download Docker for Mac here](https://hub.docker.com/?overlay=onboarding)
+
+Start the Docker Desktop daemon before proceeding.
 
 ### Step 2 - Launch the Database Container
 
