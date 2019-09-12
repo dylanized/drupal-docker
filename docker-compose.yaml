@@ -11,12 +11,12 @@ services:
         ports:
           - 33060:3306
         volumes:
-          - ./data:/docker-entrypoint-initdb.d
+          - ./docker/init:/docker-entrypoint-initdb.d
         networks:
           - drupal
     drupal:
         container_name: drupal
-        image: drupal:latest
+        build: ./docker/drupal
         ports:
           - 8000:80
         volumes:

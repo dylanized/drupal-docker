@@ -8,11 +8,11 @@ Start the Docker Desktop daemon before proceeding.
 
 ### Step 2 - Launch the Containers
 
-In the included `docker-compose.yaml` config file, a database container and a web server container are defined.
+In the included `docker-compose.yaml` config file, a `mysql` database container and a `drupal` web server container are defined. The drupal container is further configured in `/docker/drupal/Dockerfile`.
 
-Navigate to the codebase folder and launch these containers with `docker-compose up`.
+Navigate to the codebase folder and launch the app containers with `docker-compose up`.
 
-The database will automatically import `.sql` files in your `/data` subdirectory.
+The database will automatically import `.sql` files in your `/docker/init` folder.
 
 ### Step 3 - View the Drupal Site
 
@@ -27,6 +27,8 @@ Exit the Docker Compose session with `CMD-C`.
 You can then restart the containers with `docker-compose start`, and stop them with `docker-compose stop`.
 
 Remove the containers with `docker-compose down`.
+
+For more utilities see the included NPM Scripts.
 
 ### Database Helpers
 
