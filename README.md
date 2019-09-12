@@ -29,8 +29,8 @@ Docker Utils:
 MySQL Utils:
 
   - `mysql:dbs` - list mysql databases
-  - `mysql:tables` - list drupal tables
-  - `mysql:empty` - empty drupal database
+  - `mysql:tables` - list Drupal tables
+  - `mysql:empty` - empty Drupal database
   - `mysql:shell` - launch shell in MySQL container
 
 ### Connect to Database
